@@ -93,42 +93,9 @@
     return results;
   }
 
-  /**
-   * Heuristic to check if an element is likely a group header:
-   * - It should be in the sidebar pane
-   * - Its sibling/child elements should include job names with tags
-   * - Common names: staging, production, etc.
-   */
   function isGroupHeader(el, text) {
     const lower = text.toLowerCase();
-    // Known environment group names
-    const knownGroups = [
-      "staging",
-      "production",
-      "development",
-      "dev",
-      "prod",
-      "stg",
-      "qa",
-      "test",
-      "uat",
-      "demo",
-      "preview",
-    ];
-
-    if (knownGroups.includes(lower)) return true;
-
-    // If not a known group, check if sibling elements contain job-like names
-    const parent = el.parentElement;
-    if (!parent) return false;
-
-    const siblingText = parent.textContent;
-    return (
-      siblingText.includes("get-build-tag") ||
-      siblingText.includes("env-check") ||
-      siblingText.includes("image-build") ||
-      siblingText.includes("dispatch-deployment")
-    );
+    return lower === "staging" || lower === "production";
   }
 
   function getDirectText(el) {
