@@ -1,4 +1,4 @@
-.staging-tag-copy-btn {
+.tag-copy-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,24 +16,24 @@
   vertical-align: middle;
 }
 
-.staging-tag-copy-btn:hover {
+.tag-copy-btn:hover {
   background-color: var(--bgColor-accent-muted, #ddf4ff);
   color: var(--fgColor-accent, #0969da);
   border-color: var(--borderColor-accent-emphasis, #0969da);
 }
 
-.staging-tag-copy-btn:active {
+.tag-copy-btn:active {
   background-color: var(--bgColor-accent-emphasis, #0969da);
   color: var(--fgColor-onEmphasis, #ffffff);
 }
 
-.staging-tag-copy-btn.copied {
+.tag-copy-btn.copied {
   color: var(--fgColor-success, #1a7f37);
   border-color: var(--borderColor-success-emphasis, #1a7f37);
   background-color: var(--bgColor-success-muted, #dafbe1);
 }
 
-.staging-tag-copy-btn svg {
+.tag-copy-btn svg {
   display: inline-block;
   vertical-align: text-bottom;
 }
