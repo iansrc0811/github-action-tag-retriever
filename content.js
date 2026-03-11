@@ -11,8 +11,9 @@
   const BUTTON_CLASS = "tag-copy-btn";
 
   // Matches git-describe tags like "2.12.1-57-gf1b9212" or simple semver like "2.16.0"
-  // Used to find tags in sidebar job names like "2.16.0 builder" or "2.12.1-57-gf1b9212 auth"
-  const TAG_PATTERN = /^(\d+\.\d+\.\d+(?:-\d+-g[0-9a-f]{7,})?)\s+\w+/;
+  // Used to find tags in sidebar job names like "2.16.0 builder", "2.12.1-57-gf1b9212 auth",
+  // or standalone tags like "1.6.0-6-gc5e538e"
+  const TAG_PATTERN = /^(\d+\.\d+\.\d+(?:-\d+-g[0-9a-f]{7,})?)(?:\s+\w+)?$/;
 
   // Matches tags in main content headings like "production / 2.16.0 builder summary"
   const HEADING_TAG_PATTERN =
