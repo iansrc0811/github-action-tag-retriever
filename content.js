@@ -1,6 +1,11 @@
 (function () {
   "use strict";
 
+  // Cleanup previous instance if re-injected via SPA navigation
+  if (window.__tagCopierCleanup) {
+    window.__tagCopierCleanup();
+  }
+
   const POLL_INTERVAL = 1000;
   const MAX_POLLS = 30;
   const BUTTON_CLASS = "tag-copy-btn";
@@ -205,4 +210,13 @@
     childList: true,
     subtree: true,
   });
+
+  // Store cleanup function for re-injection during SPA navigation
+  window.__tagCopierCleanup = function () {
+    clearInterval(pollTimer);
+    observer.disconnect();
+    document.querySelectorAll("." + BUTTON_CLASS).forEach(function (el) {
+      el.remove();
+    });
+  };
 })();

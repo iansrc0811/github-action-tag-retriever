@@ -1,9 +1,13 @@
 {
   "manifest_version": 3,
   "name": "GitHub Actions Staging Tag Copier",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Adds a copy button next to the 'staging' title in GitHub Actions workflow runs to copy the build tag to clipboard.",
-  "permissions": ["clipboardWrite"],
+  "permissions": ["clipboardWrite", "scripting", "webNavigation"],
+  "host_permissions": ["https://github.com/resumecompanion/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["https://github.com/resumecompanion/*/actions/runs/*"],
